@@ -1,0 +1,22 @@
+{
+  "name": "fend-neighborhood-map",
+  "version": "1.0.0",
+  "description": "Project from Udacity's Front End Web Developer nanodegree program which consists in creating a neighborhood map using Google maps' API, JavaScript design patterns and more.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calaca/fend-neighborhood-map.git"
+  },
+  "author": "calaca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calaca/fend-neighborhood-map/issues"
+  },
+  "homepage": "https://github.com/calaca/fend-neighborhood-map#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
