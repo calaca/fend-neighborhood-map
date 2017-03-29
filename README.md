@@ -4,13 +4,13 @@
 
 ## Stack
 
-- Framework MVVM: [Knockout.js](http://knockoutjs.com/)
+- Framework MVVM (Model-View-ViewModel): [Knockout.js](http://knockoutjs.com/)
 - Task runner: [Gulp](http://gulpjs.com/)
 
 ## APIs
 
 - [Google Maps](https://developers.google.com/maps/documentation/)
-- [Wikipedia's MediaWikiAPI](http://www.mediawiki.org/wiki/API:Main_page)
+- [Foursquare](https://developer.foursquare.com/)
 
 ## Folders Structure
 
@@ -54,9 +54,9 @@
         - Install Node and NPM via Homebrew: `brew install node`
     - Windows: download the [Windows Installer](http://nodejs.org/#download) and follow the instructions.
 - Gulp: `npm install -g gulp-cli`
-- Dependencies: `npm install`
+- Dependencies: run `npm install` at root level.
 
-## Running The Project
+## Run The Project
 
 **TODO:** finish this section as soon as the gulpfile is done.
 
