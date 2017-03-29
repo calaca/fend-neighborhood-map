@@ -17,6 +17,19 @@
   },
   "homepage": "https://github.com/calaca/fend-neighborhood-map#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "bower": "^1.8.0",
+    "browser-sync": "^2.18.8",
+    "csslint-stylish": "0.0.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-csslint": "^1.0.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-jshint": "^2.0.4",
+    "gulp-uglify": "^2.1.2",
+    "gulp-usemin": "^0.3.28",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1"
   }
 }

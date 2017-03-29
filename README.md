@@ -4,8 +4,9 @@
 
 ## Stack
 
-- Framework MVVM (Model-View-ViewModel): [Knockout.js](http://knockoutjs.com/)
+- Package managers: [NPM](https://www.npmjs.com/)
 - Task runner: [Gulp](http://gulpjs.com/)
+- Framework MVVM (Model-View-ViewModel): [Knockout.js](http://knockoutjs.com/)
 
 ## APIs
 
@@ -54,6 +55,7 @@
         - Install Node and NPM via Homebrew: `brew install node`
     - Windows: download the [Windows Installer](http://nodejs.org/#download) and follow the instructions.
 - Gulp: `npm install -g gulp-cli`
+- Bower: `npm install -g bower`
 - Dependencies: run `npm install` at root level.
 
 ## Run The Project
