@@ -17,11 +17,13 @@
 
 ```
 .
-├── README.md
 ├── dist/
+|   └── ...
 ├── src/
 |   ├── css/
 |   |   └── app.css
+|   ├── img/
+|   |   └── favicon.png
 |   ├── js/
 |   |   ├── collections/
 |   |   |   └── ...
@@ -31,12 +33,16 @@
 |   |   |   └── ...
 |   |   └── views/
 |   |   |   └── ...
-|   |   └── app.js
+|   |   ├── app.js
+|   |   └── map.js
 |   └── index.html
-├── gulpfile.js
-├── package.json
 ├── .editorconfig
-└── .gitignore
+├── .gitignore
+├── browserslist
+├── gulpfile.js
+├── LICENSE.md
+├── package.json
+└── README.md
 ```
 
 ## Set Up
@@ -55,12 +61,18 @@
         - Install Node and NPM via Homebrew: `brew install node`
     - Windows: download the [Windows Installer](http://nodejs.org/#download) and follow the instructions.
 - Gulp: `npm install -g gulp-cli`
-- Bower: `npm install -g bower`
 - Dependencies: run `npm install` at root level.
 
 ## Run The Project
 
-**TODO:** finish this section as soon as the gulpfile is done.
+The distribution version is located at `dist` whereas the source code is located at `src`.
+
+> Open `index.html` that is inside `dist`or `src` to visualize the distribution and source versions correspondingly.
+
+To run the distribution version on your machine open a terminal then run `gulp`. All new processed files should be inside the `dist` folder.
+
+If you wish to play with the source code then run `gulp server` so you have a server with auto-reaload functionality up and running.
 
 ## License
+
 [MIT License](https://github.com/calaca/fend-neighborhood-map/blob/master/LICENSE.md) © [Lorena Calaça](http://calaca.github.io/)
