@@ -290,7 +290,7 @@ var styles    = [
         "elementType": "all",
         "stylers": [
             {
-                "color": "#2b3638"
+                "color": "#ffffff"
             },
             {
                 "visibility": "on"
