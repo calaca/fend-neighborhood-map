@@ -3,10 +3,10 @@ var map;
 var markers   = [];
 var locations = [
     {title: 'Brasil Park Shopping', location: {lat: -16.3241054, lng: -48.9512629}},
-    {title: 'Parque Ambiental Ipiranga', location: {lat: -16.3360044, lng: -48.9434534}},
-    {title: 'Joana Dark', location: {lat: -16.3327028, lng: -48.9573166}},
-    {title: 'Meiji Restaurante', location: {lat: -16.3303684, lng: -48.956882}},
-    {title: 'PUB 767 Restaurant Bar', location: {lat: -16.3314434, lng: -48.959275}}
+    {title: 'Park Ipiranga', location: {lat: -16.3360044, lng: -48.9434534}},
+    {title: 'Pub Joana Dark', location: {lat: -16.3327028, lng: -48.9573166}},
+    {title: 'Meiji Restaurant', location: {lat: -16.3303684, lng: -48.956882}},
+    {title: 'Pub 767', location: {lat: -16.3314434, lng: -48.959275}}
 ];
 var styles    = [
     {
