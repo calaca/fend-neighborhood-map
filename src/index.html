@@ -12,18 +12,23 @@
     <!-- endbuild -->
 </head>
 <body>
+    <!-- starts container -->
     <div class="container">
+        <!-- start left panel -->
         <div class="left-panel">
             <div class="title">
                 <h1>Neighborhood Map</h1>
             </div>
             <div class="options">
-                <input type="text" placeholder="Search for places">
-                <ul class="locations" data-bind="foreach: places">
-                    <li data-bind="text: title">Teste</li>
+                <input type="text" class="search" placeholder="Search for places">
+                <ul class="locations" data-bind="foreach: locations">
+                    <li data-bind="text: title"></li>
                 </ul>
             </div>
         </div>
+        <!-- ends left panel -->
+
+        <!-- starts extra info -->
         <div class="info">
             <p class="map-style-author">
                 <a href="https://snazzymaps.com/style/72543/assassins-creed-iv">Assassin's Creed IV map style</a> by Sarah Frisk
@@ -32,11 +37,18 @@
                 Neighborhood map project by <a href="https://calaca.github.io/">calaca</a> <a href="https://github.com/calaca/fend-neighborhood-map"><i class="fa fa-github" aria-hidden="true"></i></a>
             </p>
         </div>
+        <!-- ends extra info -->
+
+        <!-- starts map -->
         <div id="map"></div>
+        <!-- ends map -->
+
     </div>
+    <!-- ends container -->
+    
     <!-- build:js js/app.min.js -->
     <script src="../node_modules/knockout/build/output/knockout-latest.js"></script>
-    <script src="js/map.js"></script>
+    <script src="js/models.js"></script>
     <script src="js/app.js"></script>
     <!-- endbuild -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa3dzj2QBWqbYAdhQ6oG_zZtqOaMo648U&v=3&callback=initMap"></script>

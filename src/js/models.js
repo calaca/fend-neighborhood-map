@@ -1,14 +1,12 @@
-// Variables
-var map;
-var markers   = [];
-var locations = [
+var mapLocations = [
     {title: 'Brasil Park Shopping', location: {lat: -16.3241054, lng: -48.9512629}},
-    {title: 'Park Ipiranga', location: {lat: -16.3360044, lng: -48.9434534}},
-    {title: 'Pub Joana Dark', location: {lat: -16.3327028, lng: -48.9573166}},
+    {title: 'Ipiranga Park', location: {lat: -16.3360044, lng: -48.9434534}},
+    {title: 'Joana Dark Pub', location: {lat: -16.3327028, lng: -48.9573166}},
     {title: 'Meiji Restaurant', location: {lat: -16.3303684, lng: -48.956882}},
-    {title: 'Pub 767', location: {lat: -16.3314434, lng: -48.959275}}
+    {title: '767 Pub', location: {lat: -16.3314434, lng: -48.959275}}
 ];
-var styles    = [
+
+var mapStyles    = [
     {
         "featureType": "all",
         "elementType": "all",
@@ -373,66 +371,3 @@ var styles    = [
         ]
     }
 ];
-
-function initMap() {
-    // Constructor function that creates a new map with custom styles
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -16.3310711, lng: -48.954776},
-        zoom: 13,
-        styles: styles,
-        mapTypeControl: false
-    });
-
-    var largeInfoWindow = new google.maps.InfoWindow();
-    var bounds          = new google.maps.LatLngBounds();
-
-    // Initializing markers
-    for(var i = 0; i < locations.length; i++) {
-        var position = locations[i].location;
-        var title    = locations[i].title;
-        var marker   = new google.maps.Marker({
-            map: map,
-            position: position,
-            title: title,
-            animation: google.maps.Animation.DROP,
-            icon: '../img/map-marker-green.png',
-            id: i
-        });
-        
-        // Populates markers array
-        markers.push(marker);
-
-        // Opens up an infowindow when a marker is clicked
-        marker.addListener('click', function() {
-            populateInfoWindow(this, largeInfoWindow);
-            markerAnimation(this);
-        });
-        
-        bounds.extend(markers[i].position);
-    }
-    map.fitBounds(bounds);
-}
-
-function populateInfoWindow(marker, infoWindow) {
-    // Checks if infowindow isn't already open
-    if(infoWindow.marker != marker) {
-        infoWindow.marker = marker;
-        infoWindow.setContent('<div>' + marker.title + '</div>');
-        infoWindow.open(map, marker);
-        // Clears marker's infowindow when closed and sets marker's icon back to green
-        infoWindow.addListener('closeclick', function() {
-            infoWindow.setMarker = null;
-            marker.setIcon('../img/map-marker-green.png');
-        });
-    }
-}
-
-// Sets marker's icon to blue and makes icon bounce once when clicked
-function markerAnimation(marker) {
-    marker.setIcon('../img/map-marker-blue.png');
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-    // Makes the marker bounce only once
-    setTimeout(function() {
-        marker.setAnimation(null);
-    }, 750);
-}

@@ -25,16 +25,9 @@
 |   ├── img/
 |   |   └── favicon.png
 |   ├── js/
-|   |   ├── collections/
-|   |   |   └── ...
-|   |   ├── models/
-|   |   |   └── ...
-|   |   ├── routers/
-|   |   |   └── ...
-|   |   └── views/
-|   |   |   └── ...
+|   |   |
 |   |   ├── app.js
-|   |   └── map.js
+|   |   └── models.js
 |   └── index.html
 ├── .editorconfig
 ├── .gitignore
