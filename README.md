@@ -4,7 +4,7 @@
 
 ## Stack
 
-- Package managers: [NPM](https://www.npmjs.com/)
+- Package manager: [NPM](https://www.npmjs.com/)
 - Task runner: [Gulp](http://gulpjs.com/)
 - Framework MVVM (Model-View-ViewModel): [Knockout.js](http://knockoutjs.com/)
 
@@ -25,7 +25,6 @@
 |   ├── img/
 |   |   └── favicon.png
 |   ├── js/
-|   |   |
 |   |   ├── app.js
 |   |   └── models.js
 |   └── index.html
