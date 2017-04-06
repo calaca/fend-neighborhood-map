@@ -1,9 +1,11 @@
-// Variables
+// ========== Variables ==========
 var map;
+var infoWindow;
 var markers   = [];
 var locations = mapLocations;
 var styles    = mapStyles;
 
+// ========== Map ==========
 function initMap() {
     // Constructor function that creates a new map with custom styles
     map = new google.maps.Map(document.getElementById('map'), {
@@ -13,8 +15,8 @@ function initMap() {
         mapTypeControl: false
     });
 
-    var largeInfoWindow = new google.maps.InfoWindow();
-    var bounds          = new google.maps.LatLngBounds();
+    var infoWindow = new google.maps.InfoWindow();
+    var bounds     = new google.maps.LatLngBounds();
 
     // Initializing markers
     for(var i = 0; i < locations.length; i++) {
@@ -34,10 +36,10 @@ function initMap() {
 
         // Opens up an infowindow when a marker is clicked
         marker.addListener('click', function() {
-            populateInfoWindow(this, largeInfoWindow);
+            populateInfoWindow(this, infoWindow);
             markerAnimation(this);
         });
-        
+        // Adjusts the map's bounds
         bounds.extend(markers[i].position);
     }
     map.fitBounds(bounds);
@@ -66,3 +68,31 @@ function markerAnimation(marker) {
         marker.setAnimation(null);
     }, 750);
 }
+
+// ========== View Model ==========
+// TODO: OPEN INFOWINDOW AND ANIMATE PIN WHEN LI IS CLICKED
+var viewModel = {
+  places: ko.observableArray([]),
+  query: ko.observable(''),
+  // Live search function
+  search: function(searchQuery) {
+    // Removes all locations from view
+    viewModel.places.removeAll();
+    // Hides all markers
+    for (var marker in markers) {
+      markers[marker].setVisible(false);
+      // Shows all markers if search field is empty
+      if (searchQuery === '') markers[marker].setVisible(true);
+    }
+    // Checks search query and displays matching locations on the view and map
+    for (var location in locations) {
+      if (locations[location].title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0) {
+        viewModel.places.push(locations[location]);
+        markers[location].setVisible(true);
+      }
+    }
+  }
+};
+
+viewModel.query.subscribe(viewModel.search);
+ko.applyBindings(viewModel);
