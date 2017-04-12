@@ -1,6 +1,6 @@
 var mapLocations = [
     {
-        title: 'Brasil Park Shopping',
+        title: 'Brasil Park Shopping (Mall)',
         location: {lat: -16.3241054, lng: -48.9512629},
         address: 'Av. Brasil, 505 - Centro, Anápolis - GO, 75113-570'
     },

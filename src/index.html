@@ -23,9 +23,9 @@
                 <form>
                     <input id="search" type="search" name="search" placeholder="Search for places" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="on">
                 </form>
-                <div data-bind="visible: places().length > 0">
+                <div data-bind="visible: places().length">
                     <ul class="locations" data-bind="foreach: places">
-                        <li name="foi" data-bind="text: title"></li>
+                        <li data-bind="text: title"></li>
                     </ul>
                 </div>
             </div>
