@@ -1,5 +1,7 @@
+// TODO: OPEN INFOWINDOW AND ANIMATE PIN WHEN LI IS CLICKED
+// TODO: INIT WITH LISTED PLACES
+
 var viewModel = {
-  // Initiates array
   places: ko.observableArray([
     {
         title: 'Brasil Park Shopping (Mall)',
@@ -43,15 +45,7 @@ var viewModel = {
       if (locations[location].title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0) {
         viewModel.places.push(locations[location]);
         markers[location].setVisible(true);
-      }
-    }
-  },
-  openInfoWindow: function(place) {
-    // Opens up an info window and animates the pin when the corresponding list item is clicked
-    for (var location in locations) {
-      if (markers[location].title === place.title) {
-        populateInfoWindow(markers[location], infoWindow);
-        markerAnimation(markers[location]);
+        // console.log(viewModel.places);
       }
     }
   }

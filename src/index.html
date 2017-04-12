@@ -25,7 +25,7 @@
                 </form>
                 <div data-bind="visible: places().length">
                     <ul class="locations" data-bind="foreach: places">
-                        <li data-bind="text: title"></li>
+                        <li data-bind="text: title, click: $parent.openInfoWindow"></li>
                     </ul>
                 </div>
             </div>
