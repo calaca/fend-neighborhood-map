@@ -19,14 +19,19 @@
 .
 ├── dist/
 |   └── ...
+├── node_modules/
+|   └── ...
 ├── src/
 |   ├── css/
 |   |   └── app.css
 |   ├── img/
-|   |   └── favicon.png
+|   |   ├── favicon.png
+|   |   ├── map-marker-blue.png
+|   |   └── map-marker-green.png
 |   ├── js/
-|   |   ├── app.js
-|   |   └── models.js
+|   |   ├── map.js
+|   |   ├── models.js
+|   |   └── view.js
 |   └── index.html
 ├── .editorconfig
 ├── .gitignore
