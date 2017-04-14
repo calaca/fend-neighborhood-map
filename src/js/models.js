@@ -1,27 +1,12 @@
 var map;
 var infoWindow;
 var markers     = [];
-var locations   = [
-    {
-        title: 'Brasil Park Shopping',
-        location: {lat: -16.32445445176676, lng: -48.94870215923184}
-    },
-    {
-        title: 'Parque Ambiental Ipiranga',
-        location: {lat: -16.336529779461724, lng: -48.94117706551084}
-    },
-    {
-        title: 'Centro Cultural Joana Dark',
-        location: {lat: -16.33279132194316, lng: -48.955110842882675}
-    },
-    {
-        title: 'Meiji Japanese Food',
-        location: {lat: -16.33673456616717, lng: -48.944503929335916}
-    },
-    {
-        title: 'Pub 767 - Restaurant Bar',
-        location: {lat: -16.33140388840312, lng: -48.9571044752599}
-    }
+var initLocations   = [
+    { title: 'Brasil Park Shopping' },
+    { title: 'Parque Ambiental Ipiranga' },
+    { title: 'Centro Cultural Joana Dark' },
+    { title: 'Meiji Japanese Food' },
+    { title: 'Pub 767 - Restaurant Bar' }
   ];
 var styles      = [
     {
@@ -390,14 +375,29 @@ var styles      = [
 ];
 var endpoint    = 'https://api.foursquare.com/v2/venues/search?near=Anapolis,GO&query=';
 var credentials = '&client_id=4NECUCZ4WH4QZC4EVRZLJVLZQZH4QIP40TDXM3K5RBAQVU34&client_secret=QHCONF5CBUGSEAIUGTFUWSLLVX4OBB2AYFSXWLRJW0FCNFPL&v=20170412';
+var locations  = [];
 
 // Gets locations categories and addresses
 var getLocations = function() {
-    for (var location in locations) {
-        $.getJSON(endpoint + locations[location].title + credentials, function(data) {
-            // TODO: FIND A WAY TO GET THESE VALUES INSIDE THE LOCATIONS ARRAY
-            console.log(data.response.venues['0'].categories['0'].name);
-            console.log(formatAddress(data.response.venues['0'].location.formattedAddress));
+    for (var location in initLocations) {
+        // TODO: MAKE THIS WORK ASYNC
+        $.ajax({
+            url: endpoint + initLocations[location].title + credentials,
+            async: false,
+            dataType: 'json', 
+            success: function(data) { 
+                var venue = data.response.venues['0'];
+                var info = {
+                    location: {lat: venue.location.lat, lng: venue.location.lng},
+                    title: venue.name,
+                    cat: venue.categories['0'].name,
+                    address: formatAddress(venue.location.formattedAddress)
+                };
+                locations.push(info);
+            },
+            error: function(xhr){
+                alert('An error occurred while trying to get data from Foursquare: ' + xhr.status + ' ' + xhr.statusText);
+            }
         });
     }
 };

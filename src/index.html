@@ -23,7 +23,7 @@
                 <form>
                     <input id="search" type="search" name="search" placeholder="Search for places" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="on">
                 </form>
-                <div data-bind="visible: places().length">
+                <div data-bind="visible: places().length > 0">
                     <ul class="locations" data-bind="foreach: places">
                         <li data-bind="text: title, click: $parent.openInfoWindow"></li>
                     </ul>

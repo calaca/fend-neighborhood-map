@@ -15,11 +15,13 @@ function initMap() {
         var position = locations[i].location;
         var title    = locations[i].title;
         var address  = locations[i].address;
+        var category = locations[i].cat;
         var marker   = new google.maps.Marker({
             map: map,
             position: position,
             title: title,
             address: address,
+            cat: category,
             animation: google.maps.Animation.DROP,
             // icon: '../img/map-marker-green.png',
             id: i
@@ -43,7 +45,7 @@ function populateInfoWindow(marker, infoWindow) {
     // Checks if infowindow isn't already open
     if(infoWindow.marker != marker) {
         infoWindow.marker = marker;
-        infoWindow.setContent('<h2>' + marker.title + '</h2><hr><p>' + marker.address + '</p>');
+        infoWindow.setContent('<h2>' + marker.title + '</h2><hr><p>' + marker.address + '</p><hr><p>' + marker.cat + '</p>');
         infoWindow.open(map, marker);
         // Clears marker's infowindow when closed and sets marker's icon back to green
         infoWindow.addListener('closeclick', function() {
