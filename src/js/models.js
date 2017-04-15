@@ -1,6 +1,6 @@
 var map;
 var infoWindow;
-var markers     = [];
+var markers         = [];
 var initLocations   = [
     { title: 'Brasil Park Shopping' },
     { title: 'Parque Ambiental Ipiranga' },
@@ -8,7 +8,7 @@ var initLocations   = [
     { title: 'Meiji Japanese Food' },
     { title: 'Pub 767 - Restaurant Bar' }
   ];
-var styles      = [
+var styles          = [
     {
         "featureType": "all",
         "elementType": "all",
@@ -373,17 +373,19 @@ var styles      = [
         ]
     }
 ];
-var endpoint    = 'https://api.foursquare.com/v2/venues/search?near=Anapolis,GO&query=';
-var credentials = '&client_id=4NECUCZ4WH4QZC4EVRZLJVLZQZH4QIP40TDXM3K5RBAQVU34&client_secret=QHCONF5CBUGSEAIUGTFUWSLLVX4OBB2AYFSXWLRJW0FCNFPL&v=20170412';
-var locations  = [];
+var endpoint        = 'https://api.foursquare.com/v2/venues/search?near=Anapolis,GO&query=';
+var clientID        = '4NECUCZ4WH4QZC4EVRZLJVLZQZH4QIP40TDXM3K5RBAQVU34';
+var clientSecret    = 'QHCONF5CBUGSEAIUGTFUWSLLVX4OBB2AYFSXWLRJW0FCNFPL';
+var credentials     = '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20170412';
+var locations       = [];
+var promises        = [];
 
 // Gets locations categories and addresses
 var getLocations = function() {
     for (var location in initLocations) {
-        // TODO: MAKE THIS WORK ASYNC
-        $.ajax({
+        // Stores all promises returned from the ajax call
+        var request = $.ajax({
             url: endpoint + initLocations[location].title + credentials,
-            async: false,
             dataType: 'json', 
             success: function(data) { 
                 var venue = data.response.venues['0'];
@@ -399,7 +401,13 @@ var getLocations = function() {
                 alert('An error occurred while trying to get data from Foursquare: ' + xhr.status + ' ' + xhr.statusText);
             }
         });
+        // Saves all promises in an array
+        promises.push(request);
     }
+    // Initiates the map as soon as all promises are done
+    $.when.apply(null, promises).done(function(){
+        initMap();
+    });
 };
 
 // Formats the address

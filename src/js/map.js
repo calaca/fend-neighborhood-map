@@ -64,3 +64,8 @@ function markerAnimation(marker) {
         marker.setAnimation(null);
     }, 750);
 }
+
+// Shows an error message if there was an error while loading google maps
+function errorHandler() {
+    alertify.error('There was an error while loading Google Maps. Please try again later.');
+}
