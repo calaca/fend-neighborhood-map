@@ -1,5 +1,8 @@
+/**
+* @description Constructor function that creates a new map with custom styles
+* @constructor
+*/
 function initMap() {
-    // Constructor function that creates a new map with custom styles
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -16.3310711, lng: -48.954776},
         zoom: 13,
@@ -41,6 +44,11 @@ function initMap() {
     map.fitBounds(bounds);
 }
 
+/**
+* @description Populates a new infowindow
+* @param {object} marker - Map's marker
+* @param {object} infoWindow - Map's infowindow
+*/
 function populateInfoWindow(marker, infoWindow) {
     // Checks if infowindow isn't already open
     if(infoWindow.marker != marker) {
@@ -55,7 +63,10 @@ function populateInfoWindow(marker, infoWindow) {
     }
 }
 
-// Makes the icon bounce only once when clicked
+/**
+* @description Makes the icon bounce only once when clicked
+* @param {object} marker - Map's marker
+*/
 function markerAnimation(marker) {
     marker.setAnimation(google.maps.Animation.BOUNCE);
     // Makes the marker bounce only once
@@ -64,7 +75,9 @@ function markerAnimation(marker) {
     }, 750);
 }
 
-// Shows an error message if there was an error while loading google maps
+/**
+* @description Shows an error message if there was an error while loading google maps
+*/
 function errorHandler() {
     alertify.error('There was an error while loading Google Maps. Please try again later.');
 }

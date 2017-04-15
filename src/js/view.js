@@ -1,5 +1,7 @@
+/**
+* @description View model
+*/
 var viewModel = {
-  // Initiates array
   places: ko.observableArray([
     {
         title: 'Brasil Park Shopping',
@@ -23,7 +25,10 @@ var viewModel = {
     }
   ]),
   query: ko.observable(''),
-  // Live search function
+  /**
+  * @description Live search function
+  * @param {String} searchQuery - Term typed by the user to search for
+  */
   search: function(searchQuery) {
     // Removes all locations from view
     viewModel.places.removeAll();
@@ -41,8 +46,11 @@ var viewModel = {
       }
     }
   },
+  /**
+  * @description Opens up an info window and animates the pin when the corresponding list item is clicked
+  * @param {object} place - The title of the book
+  */
   openInfoWindow: function(place) {
-    // Opens up an info window and animates the pin when the corresponding list item is clicked
     for (var location in locations) {
       if (markers[location].title === place.title) {
         populateInfoWindow(markers[location], infoWindow);

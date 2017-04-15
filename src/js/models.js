@@ -380,7 +380,9 @@ var credentials     = '&client_id=' + clientID + '&client_secret=' + clientSecre
 var locations       = [];
 var promises        = [];
 
-// Gets locations categories and addresses
+/**
+* @description Gets locations categories and addresses
+*/
 var getLocations = function() {
     for (var location in initLocations) {
         // Stores all promises returned from the ajax call
@@ -410,7 +412,10 @@ var getLocations = function() {
     });
 };
 
-// Formats the address
+/**
+* @description Formats the Foursquare address
+* @param {object} unformatted - Unformatted address
+*/
 var formatAddress = function(unformatted) {
     var formatted = '';
     for (var i = 0; i < unformatted.length; i++) {
