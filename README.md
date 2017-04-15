@@ -62,7 +62,7 @@
 
 ## Run The Project
 
-> Please make sure you've run `npm install` [(see above)](https://github.com/calaca/fend-neighborhood-map#set-up) before opening up the project.
+> :warning: Please make sure you've run `npm install` [(see above)](https://github.com/calaca/fend-neighborhood-map#set-up) before opening up the project. :warning:
 
 - The distribution version is located at `dist` whereas the source code is located at `src`.
 
