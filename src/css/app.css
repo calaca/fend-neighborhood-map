@@ -22,7 +22,7 @@ body {
 }
 
 .left-panel {
-    background: #24282b;
+    background-color: #24282b;
     border-right: 2px solid #7f8d89;
     color: #fff;
     height: 100%;
@@ -120,6 +120,47 @@ input[type=search]:focus {
     color: rgba(0, 0, 0, .5);
 }
 
-@media only screen and (max-width: 40em) {
-    /*TODO: CODE RESPONSIVE CSS*/
+@media only screen and (max-width: 64em) {
+
+    html,
+    body {
+        background-color: #24282b;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    .left-panel {
+        border-right:0;
+        padding: 0;
+        text-align: justify;
+        width: 100%;
+        height: 330px;
+    }
+
+    .options {
+        margin-top: 45px;
+    }
+
+    .title h1 {
+        margin-top: 0;
+    }
+
+    .info {
+        left: 0;
+        top: 45px;
+        padding: 0;
+        width: 100%;
+        background-color: transparent;
+        text-align: center;
+    }
+
+    #map {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
 }
