@@ -1,5 +1,7 @@
 # Neighborhood Map
 
+[![FEND nanodegree](https://img.shields.io/badge/Udacity-FEND-02b3e4.svg?style=flat-square)](https://udacity.com/course/front-end-web-developer-nanodegree--nd001/) [![License](https://img.shields.io/badge/license-MIT-02b3e4.svg?style=flat-square)](https://github.com/calaca/fend-neighborhood-map/blob/master/LICENSE.md)
+
 > Project from Udacity's [Front End Web Developer nanodegree program](https://udacity.com/course/front-end-web-developer-nanodegree--nd001/) which consists in creating a neighborhood map using Google maps' API, JavaScript design patterns and more. :mortar_board: :computer:
 
 ## Stack
