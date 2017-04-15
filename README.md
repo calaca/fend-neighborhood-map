@@ -4,6 +4,8 @@
 
 > Project from Udacity's [Front End Web Developer nanodegree program](https://udacity.com/course/front-end-web-developer-nanodegree--nd001/) which consists in creating a neighborhood map using Google maps' API, JavaScript design patterns and more. :mortar_board: :computer:
 
+![Desktop Demo](demo.png)
+
 ## Stack
 
 - Package manager: [NPM](https://www.npmjs.com/)

@@ -23,7 +23,7 @@ function initMap() {
             address: address,
             cat: category,
             animation: google.maps.Animation.DROP,
-            // icon: '../img/map-marker-green.png',
+            icon: '../img/map-marker-green.png',
             id: i
         });
         
@@ -50,14 +50,13 @@ function populateInfoWindow(marker, infoWindow) {
         // Clears marker's infowindow when closed and sets marker's icon back to green
         infoWindow.addListener('closeclick', function() {
             infoWindow.setMarker = null;
-            // marker.setIcon('../img/map-marker-green.png');
+            marker.setIcon('../img/map-marker-green.png');
         });
     }
 }
 
-// Sets marker's icon to blue and makes icon bounce once when clicked
+// Makes the icon bounce only once when clicked
 function markerAnimation(marker) {
-    // marker.setIcon('../img/map-marker-blue.png');
     marker.setAnimation(google.maps.Animation.BOUNCE);
     // Makes the marker bounce only once
     setTimeout(function() {
