@@ -52,7 +52,7 @@ function populateInfoWindow(marker, infoWindow) {
     // Checks if infowindow isn't already open
     if(infoWindow.marker != marker) {
         infoWindow.marker = marker;
-        infoWindow.setContent('<h2>' + marker.title + '</h2><hr><p><strong>Address: </strong>' + marker.address + '</p><hr><p><strong>Category: </strong>' + marker.cat + '</p>');
+        infoWindow.setContent('<h2>' + marker.title + '</h2><hr><p><strong>Address: </strong>' + marker.address + '</p><hr><p><strong>Category: </strong>' + marker.cat + '</p><hr><p>Information provided by <a href="https://foursquare.com/">Foursquare</a>');
         infoWindow.open(map, marker);
         // Clears marker's infowindow when closed and sets marker's icon back to green
         infoWindow.addListener('closeclick', function() {

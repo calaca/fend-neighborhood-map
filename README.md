@@ -64,15 +64,19 @@
 
 ## Run The Project
 
+**1. Production (dist folder)**
+
+- Open the `index.html` located in the `dist` folder.
+
+**2. Source (src folder)**
+
 > :warning: Please make sure you've run `npm install` [(see above)](https://github.com/calaca/fend-neighborhood-map#set-up) before opening up the project. :warning:
 
-- The distribution version is located at `dist` whereas the source code is located at `src`.
+- Open the `index.html` located in the `src` folder.
 
-- Open `index.html` that is inside `dist` or `src` to visualize the distribution and source versions correspondingly.
+- To play with the source code run `gulp server` so you have a server with auto-reaload functionality up and running.
 
-- To run the distribution version on your machine open a terminal then run `gulp`. All new processed files should be inside the `dist` folder.
-
-- If you wish to play with the source code then run `gulp server` so you have a server with auto-reaload functionality up and running.
+- To run the distribution version on your machine run `gulp`. All new processed files should be inside the `dist` folder.
 
 ## License
 
