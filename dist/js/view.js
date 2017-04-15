@@ -1,32 +1,25 @@
-// TODO: OPEN INFOWINDOW AND ANIMATE PIN WHEN LI IS CLICKED
-// TODO: INIT WITH LISTED PLACES
-
 var viewModel = {
+  // Initiates array
   places: ko.observableArray([
     {
-        title: 'Brasil Park Shopping (Mall)',
-        location: {lat: -16.3241054, lng: -48.9512629},
-        address: 'Av. Brasil, 505 - Centro, Anápolis - GO, 75113-570'
+        title: 'Brasil Park Shopping',
+        location: {lat: -16.32445445176676, lng: -48.94870215923184}
     },
     {
-        title: 'Ipiranga Park',
-        location: {lat: -16.3360044, lng: -48.9434534},
-        address: 'Av. Professora Zenaide Roriz, s/n - Jundiaí, Anápolis - GO, 75110-580'
+        title: 'Parque Ambiental Ipiranga',
+        location: {lat: -16.336529779461724, lng: -48.94117706551084}
     },
     {
-        title: 'Joana Dark Pub',
-        location: {lat: -16.3327028, lng: -48.9573166},
-        address: 'Av. Sen. José Lourenço Dias, 1726 - St. Central, Anápolis - GO, 75023-160'
+        title: 'Centro Cultural Joana Dark',
+        location: {lat: -16.33279132194316, lng: -48.955110842882675}
     },
     {
-        title: 'Meiji Restaurant',
-        location: {lat: -16.3303684, lng: -48.956882},
-        address: 'Av. São Francisco, 740 - Bairro Jundaí, Anápolis - GO, 75110-815'
+        title: 'Meiji Japanese Food',
+        location: {lat: -16.33673456616717, lng: -48.944503929335916}
     },
     {
-        title: '767 Pub',
-        location: {lat: -16.3314434, lng: -48.959275},
-        address: 'Rua Engenheiro Portela, 767 - St. Central, Anápolis - GO, 75023-085'
+        title: 'Pub 767 - Restaurant Bar',
+        location: {lat: -16.33140388840312, lng: -48.9571044752599}
     }
   ]),
   query: ko.observable(''),
@@ -45,7 +38,15 @@ var viewModel = {
       if (locations[location].title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0) {
         viewModel.places.push(locations[location]);
         markers[location].setVisible(true);
-        // console.log(viewModel.places);
+      }
+    }
+  },
+  openInfoWindow: function(place) {
+    // Opens up an info window and animates the pin when the corresponding list item is clicked
+    for (var location in locations) {
+      if (markers[location].title === place.title) {
+        populateInfoWindow(markers[location], infoWindow);
+        markerAnimation(markers[location]);
       }
     }
   }

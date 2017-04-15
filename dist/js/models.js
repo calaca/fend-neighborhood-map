@@ -1,34 +1,14 @@
 var map;
 var infoWindow;
-var markers   = [];
-var locations = [
-    {
-        title: 'Brasil Park Shopping (Mall)',
-        location: {lat: -16.3241054, lng: -48.9512629},
-        address: 'Av. Brasil, 505 - Centro, Anápolis - GO, 75113-570'
-    },
-    {
-        title: 'Ipiranga Park',
-        location: {lat: -16.3360044, lng: -48.9434534},
-        address: 'Av. Professora Zenaide Roriz, s/n - Jundiaí, Anápolis - GO, 75110-580'
-    },
-    {
-        title: 'Joana Dark Pub',
-        location: {lat: -16.3327028, lng: -48.9573166},
-        address: 'Av. Sen. José Lourenço Dias, 1726 - St. Central, Anápolis - GO, 75023-160'
-    },
-    {
-        title: 'Meiji Restaurant',
-        location: {lat: -16.3303684, lng: -48.956882},
-        address: 'Av. São Francisco, 740 - Bairro Jundaí, Anápolis - GO, 75110-815'
-    },
-    {
-        title: '767 Pub',
-        location: {lat: -16.3314434, lng: -48.959275},
-        address: 'Rua Engenheiro Portela, 767 - St. Central, Anápolis - GO, 75023-085'
-    }
-];
-var styles    = [
+var markers         = [];
+var initLocations   = [
+    { title: 'Brasil Park Shopping' },
+    { title: 'Parque Ambiental Ipiranga' },
+    { title: 'Centro Cultural Joana Dark' },
+    { title: 'Meiji Japanese Food' },
+    { title: 'Pub 767 - Restaurant Bar' }
+  ];
+var styles          = [
     {
         "featureType": "all",
         "elementType": "all",
@@ -393,3 +373,51 @@ var styles    = [
         ]
     }
 ];
+var endpoint        = 'https://api.foursquare.com/v2/venues/search?near=Anapolis,GO&query=';
+var clientID        = '4NECUCZ4WH4QZC4EVRZLJVLZQZH4QIP40TDXM3K5RBAQVU34';
+var clientSecret    = 'QHCONF5CBUGSEAIUGTFUWSLLVX4OBB2AYFSXWLRJW0FCNFPL';
+var credentials     = '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20170412';
+var locations       = [];
+var promises        = [];
+
+// Gets locations categories and addresses
+var getLocations = function() {
+    for (var location in initLocations) {
+        // Stores all promises returned from the ajax call
+        var request = $.ajax({
+            url: endpoint + initLocations[location].title + credentials,
+            dataType: 'json', 
+            success: function(data) { 
+                var venue = data.response.venues['0'];
+                var info = {
+                    location: {lat: venue.location.lat, lng: venue.location.lng},
+                    title: venue.name,
+                    cat: venue.categories['0'].name,
+                    address: formatAddress(venue.location.formattedAddress)
+                };
+                locations.push(info);
+            },
+            error: function(xhr){
+                alert('An error occurred while trying to get data from Foursquare: ' + xhr.status + ' ' + xhr.statusText);
+            }
+        });
+        // Saves all promises in an array
+        promises.push(request);
+    }
+    // Initiates the map as soon as all promises are done
+    $.when.apply(null, promises).done(function(){
+        initMap();
+    });
+};
+
+// Formats the address
+var formatAddress = function(unformatted) {
+    var formatted = '';
+    for (var i = 0; i < unformatted.length; i++) {
+        formatted += unformatted[i] + ', ';
+    }
+    formatted = formatted.replace(/,\s+$/, '');
+    return formatted;
+};
+
+getLocations();

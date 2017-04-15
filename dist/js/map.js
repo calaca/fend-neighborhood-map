@@ -7,19 +7,23 @@ function initMap() {
         mapTypeControl: false
     });
 
-    var infoWindow = new google.maps.InfoWindow();
+    infoWindow     = new google.maps.InfoWindow();
     var bounds     = new google.maps.LatLngBounds();
 
     // Initializing markers
     for(var i = 0; i < locations.length; i++) {
         var position = locations[i].location;
         var title    = locations[i].title;
+        var address  = locations[i].address;
+        var category = locations[i].cat;
         var marker   = new google.maps.Marker({
             map: map,
             position: position,
             title: title,
+            address: address,
+            cat: category,
             animation: google.maps.Animation.DROP,
-            // icon: '../img/map-marker-green.png',
+            icon: '../img/map-marker-green.png',
             id: i
         });
         
@@ -41,22 +45,26 @@ function populateInfoWindow(marker, infoWindow) {
     // Checks if infowindow isn't already open
     if(infoWindow.marker != marker) {
         infoWindow.marker = marker;
-        infoWindow.setContent('<div>' + marker.title + '</div>');
+        infoWindow.setContent('<h2>' + marker.title + '</h2><hr><p>' + marker.address + '</p><hr><p>' + marker.cat + '</p>');
         infoWindow.open(map, marker);
         // Clears marker's infowindow when closed and sets marker's icon back to green
         infoWindow.addListener('closeclick', function() {
             infoWindow.setMarker = null;
-            // marker.setIcon('../img/map-marker-green.png');
+            marker.setIcon('../img/map-marker-green.png');
         });
     }
 }
 
-// Sets marker's icon to blue and makes icon bounce once when clicked
+// Makes the icon bounce only once when clicked
 function markerAnimation(marker) {
-    // marker.setIcon('../img/map-marker-blue.png');
     marker.setAnimation(google.maps.Animation.BOUNCE);
     // Makes the marker bounce only once
     setTimeout(function() {
         marker.setAnimation(null);
     }, 750);
+}
+
+// Shows an error message if there was an error while loading google maps
+function errorHandler() {
+    alertify.error('There was an error while loading Google Maps. Please try again later.');
 }

@@ -79,8 +79,6 @@ input[type=search] {
     text-align: center;
     position: relative;
     margin: 0;
-    left: 0;
-    top: 5px;    
     width: 100%;
     z-index: 2;
     border: 2px solid #c4c4c4;
@@ -120,4 +118,8 @@ input[type=search]:focus {
     cursor: pointer;
     color: #c4c4c4;
     color: rgba(0, 0, 0, .5);
+}
+
+@media only screen and (max-width: 40em) {
+    /*TODO: CODE RESPONSIVE CSS*/
 }
