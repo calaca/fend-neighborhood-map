@@ -29,9 +29,7 @@
 |   ├── css/
 |   |   └── app.css
 |   ├── img/
-|   |   ├── favicon.png
-|   |   ├── map-marker-blue.png
-|   |   └── map-marker-green.png
+|   |   └── favicon.png
 |   ├── js/
 |   |   ├── map.js
 |   |   ├── models.js
