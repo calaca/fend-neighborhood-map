@@ -48,7 +48,7 @@ var viewModel = {
   },
   /**
   * @description Opens up an info window and animates the pin when the corresponding list item is clicked
-  * @param {object} place - The title of the book
+  * @param {object} place - The name of the place
   */
   openInfoWindow: function(place) {
     for (var location in locations) {

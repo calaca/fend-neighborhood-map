@@ -1,6 +1,5 @@
 /**
-* @description Constructor function that creates a new map with custom styles
-* @constructor
+* @constructor Creates a new map with custom styles
 */
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -53,7 +52,7 @@ function populateInfoWindow(marker, infoWindow) {
     // Checks if infowindow isn't already open
     if(infoWindow.marker != marker) {
         infoWindow.marker = marker;
-        infoWindow.setContent('<h2>' + marker.title + '</h2><hr><p>' + marker.address + '</p><hr><p>' + marker.cat + '</p>');
+        infoWindow.setContent('<h2>' + marker.title + '</h2><hr><p><strong>Address: </strong>' + marker.address + '</p><hr><p><strong>Category: </strong>' + marker.cat + '</p>');
         infoWindow.open(map, marker);
         // Clears marker's infowindow when closed and sets marker's icon back to green
         infoWindow.addListener('closeclick', function() {
