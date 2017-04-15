@@ -399,8 +399,8 @@ var getLocations = function() {
                 };
                 locations.push(info);
             },
-            error: function(xhr){
-                alert('An error occurred while trying to get data from Foursquare: ' + xhr.status + ' ' + xhr.statusText);
+            error: function(xhr) {
+                alertify.error('An error occurred while trying to get data from Foursquare: ' + xhr.status + ' ' + xhr.statusText);
             }
         });
         // Saves all promises in an array
