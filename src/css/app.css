@@ -1,3 +1,16 @@
+/*
+======== SUMMARY ========
+
+    1. General
+    2. Map
+    3. Left Panel
+    4. Info
+    5. Tablet & Mobile
+
+=========================
+*/
+
+/* 1. General */
 html,
 body {
     background: #4d6059;
@@ -13,6 +26,7 @@ body {
     position: relative;
 }
 
+/* 2. Map */
 #map {
     bottom: 0;
     height: 100%;
@@ -21,6 +35,7 @@ body {
     right: 0;
 }
 
+/* 3. Left Panel */
 .left-panel {
     background-color: #24282b;
     border-right: 2px solid #7f8d89;
@@ -39,39 +54,8 @@ body {
     border-bottom: 1px solid #40474c;
     font-size: 26px;
     font-weight: 300;
-    padding-bottom: 5px;
+    padding: 0 0 0 5px;
     text-transform: uppercase;
-}
-
-.info {
-    background-color: #7f8d89;
-    background-color: rgba(127,141,137,.85);
-    left: 362px;
-    padding: 5px;
-    position: absolute;
-    top: 0;
-    z-index: 4;
-}
-
-.info p {
-    color: #c9e0d9;
-    font-size: 14px;
-    margin: 0;
-    text-shadow: 1px 1px 5px rgba(0,0,0,.65);
-}
-
-.info p a {
-    border-bottom: 1px dotted #40474c;
-    color: #c9e0d9;
-    text-decoration: none;
-}
-
-.info p a i {
-    color: #fff;
-}
-
-.info p a i:hover {
-    color: #c9e0d9;
 }
 
 input[type=search] {
@@ -91,7 +75,7 @@ input[type=search]::placeholder {
 }
 
 input[type=search]:focus {
-    outline: none;
+    outline: 0;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
 
@@ -117,9 +101,42 @@ input[type=search]:focus {
 .locations li:hover {
     cursor: pointer;
     color: #c4c4c4;
-    color: rgba(0, 0, 0, .5);
+    color: rgba(0, 0, 0, 0.5);
 }
 
+/* 4. Info */
+.info {
+    background-color: #7f8d89;
+    background-color: rgba(127, 141, 137, 0.85);
+    left: 362px;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    z-index: 4;
+}
+
+.info p {
+    color: #c9e0d9;
+    font-size: 14px;
+    margin: 0;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.65);
+}
+
+.info p a {
+    border-bottom: 1px dotted #40474c;
+    color: #c9e0d9;
+    text-decoration: none;
+}
+
+.info p a i {
+    color: #fff;
+}
+
+.info p a i:hover {
+    color: #c9e0d9;
+}
+
+/* 5. Tablet & Mobile */
 @media only screen and (max-width: 64em) {
 
     html,
@@ -140,11 +157,11 @@ input[type=search]:focus {
     }
 
     .options {
-        margin-top: 45px;
+        margin: 45px 0;
     }
 
     .title h1 {
-        margin-top: 0;
+        margin: 0;
     }
 
     .info {
