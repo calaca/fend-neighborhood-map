@@ -23,7 +23,7 @@
             </div>
             <div class="options">
                 <form>
-                    <input id="search" type="search" name="search" placeholder="Search for places" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="on">
+                    <input id="search" type="text" name="search" placeholder="Search for places" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
                 </form>
                 <div data-bind="visible: places().length > 0">
                     <ul class="locations" data-bind="foreach: places">

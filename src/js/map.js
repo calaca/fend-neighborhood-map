@@ -18,6 +18,7 @@ function initMap() {
         var title    = locations[i].title;
         var address  = locations[i].address;
         var category = locations[i].cat;
+        var id       = locations[i].id;
         var marker   = new google.maps.Marker({
             map: map,
             position: position,
@@ -26,7 +27,7 @@ function initMap() {
             cat: category,
             animation: google.maps.Animation.DROP,
             icon: 'https://goo.gl/nZiMiw',
-            id: i
+            id: id
         });
         
         // Populates markers array
@@ -52,7 +53,7 @@ function populateInfoWindow(marker, infoWindow) {
     // Checks if infowindow isn't already open
     if(infoWindow.marker != marker) {
         infoWindow.marker = marker;
-        infoWindow.setContent('<h2>' + marker.title + '</h2><hr><p><strong>Address: </strong>' + marker.address + '</p><hr><p><strong>Category: </strong>' + marker.cat + '</p><hr><p>Information provided by <a href="https://foursquare.com/">Foursquare</a>');
+        infoWindow.setContent('<h2>' + marker.title + '</h2><hr><p><strong>Address: </strong>' + marker.address + '</p><hr><p><strong>Category: </strong>' + marker.cat + '</p><hr><p>Check out more about this place <a href="https://foursquare.com/venue/' + marker.id + '">here</a>.</p><hr><p><small>Information provided by <a href="https://foursquare.com">Foursquare</a></small></p>');
         infoWindow.open(map, marker);
         // Clears marker's infowindow when closed and sets marker's icon back to green
         infoWindow.addListener('closeclick', function() {

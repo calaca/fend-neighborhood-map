@@ -395,7 +395,8 @@ var getLocations = function() {
                     location: {lat: venue.location.lat, lng: venue.location.lng},
                     title: venue.name,
                     cat: venue.categories['0'].name,
-                    address: formatAddress(venue.location.formattedAddress)
+                    address: formatAddress(venue.location.formattedAddress),
+                    id: venue.id
                 };
                 locations.push(info);
             },
