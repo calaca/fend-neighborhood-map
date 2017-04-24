@@ -1,6 +1,5 @@
 var gulp         = require('gulp');
 var clean        = require('gulp-clean');
-var html         = require('gulp-html-replace');
 var uglify       = require('gulp-uglify');
 var cssmin       = require('gulp-cssmin');
 var usemin       = require('gulp-usemin');
